@@ -10,7 +10,7 @@ var specialvalue = ['!', '@', '#', '$', '%', '^', '&', '*', '+'];
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-console.log("hi" + passwordText)
+  console.log("hi" + passwordText)
   passwordText.value = password;
 }
 
@@ -26,71 +26,71 @@ function generatePassword() {
     return null;
   }
 
-//  now start applying password options
-var hasUpperCasedCharacters = confirm(
-  'Click OK to confirm that this password contains uppercase characters.'
-);
-var hasLowerCasedCharacrers = confirm(
-  'Click OK to confirm that this password contains lowercase characters.'
-)
-var hasNumbers = confirm(
-  'Click OK to confirm that this password contains numbers.'
-);
-var hasSpecialCharacters = confirm(
-  'Click OK to confirm that this password has special characters.'
-);
+  //  now start applying password options
+  var hasUpperCasedCharacters = confirm(
+    'Click OK to confirm that this password contains uppercase characters.'
+  );
+  var hasLowerCasedCharacrers = confirm(
+    'Click OK to confirm that this password contains lowercase characters.'
+  )
+  var hasNumbers = confirm(
+    'Click OK to confirm that this password contains numbers.'
+  );
+  var hasSpecialCharacters = confirm(
+    'Click OK to confirm that this password has special characters.'
+  );
 
-// Creates an empty array to consildate which characters the user chooses to put into that array
-var bag =[];
+  // Creates an empty array to consildate which characters the user chooses to put into that array
+  var bag = [];
 
-console.log('before bag: ' + bag)
-if (hasNumbers) {
-  console.log('inside')
-  var array = bag.concat(numeric)
-  bag = array;
-  console.log("this other array: " + array)
-}
-console.log('after bag: ' + bag)
+  console.log('before bag: ' + bag)
+  if (hasNumbers) {
+    console.log('inside')
+    var array = bag.concat(numeric)
+    bag = array;
+    console.log("this other array: " + array)
+  }
+  console.log('after bag: ' + bag)
 
-if (hasUpperCasedCharacters) {
-  console.log('inside')
-  var array = bag.concat(uppercase)
-  bag = array;
-  console.log("this other array: " + array)
-}
-console.log('after bag: ' + bag)
+  if (hasUpperCasedCharacters) {
+    console.log('inside')
+    var array = bag.concat(uppercase)
+    bag = array;
+    console.log("this other array: " + array)
+  }
+  console.log('after bag: ' + bag)
 
-if (hasLowerCasedCharacrers) {
-  console.log('inside')
-  var array = bag.concat(lowercase)
-  bag = array;
-  console.log("this other array: " + array)
-}
-console.log('after bag: ' + bag)
+  if (hasLowerCasedCharacrers) {
+    console.log('inside')
+    var array = bag.concat(lowercase)
+    bag = array;
+    console.log("this other array: " + array)
+  }
+  console.log('after bag: ' + bag)
 
-if (hasSpecialCharacters) {
-  console.log('inside')
-  var array = bag.concat(specialvalue)
-  bag = array;
-  console.log("this other array: " + array)
-}
-console.log('final bag: ' + bag)
+  if (hasSpecialCharacters) {
+    console.log('inside')
+    var array = bag.concat(specialvalue)
+    bag = array;
+    console.log("this other array: " + array)
+  }
+  console.log('final bag: ' + bag)
 
-var actualPassword = ""
+  var actualPassword = ""
 
-// This loop generates a new character userInput # of times. And combines the characters one step at a time.
-for (var n = 0; n < userInput; n++) {
-  // randomIndex defines the position of the letter in the array
-  var randomIndex = Math.floor(Math.random() * bag.length);
-  console.log('random spot is ' + randomIndex)
-  // randomValue represents the letter of the position generated from the randomIndex
-  let randomValue = bag[randomIndex]
-  console.log("hi " + randomValue)
-  // 
-  actualPassword = actualPassword + randomValue
-  console.log("bye " + actualPassword)
-}
-return actualPassword
+  // This loop generates a new character userInput # of times. And combines the characters one step at a time.
+  for (var n = 0; n < userInput; n++) {
+    // randomIndex defines the position of the letter in the array
+    var randomIndex = Math.floor(Math.random() * bag.length);
+    console.log('random spot is ' + randomIndex)
+    // randomValue represents the letter of the position generated from the randomIndex
+    let randomValue = bag[randomIndex]
+    console.log("hi " + randomValue)
+    // 
+    actualPassword = actualPassword + randomValue
+    console.log("bye " + actualPassword)
+  }
+  return actualPassword
 }
 
 // var actualPassword = ""

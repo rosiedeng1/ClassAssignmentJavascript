@@ -10,7 +10,7 @@ var specialvalue = ['!', '@', '#', '$', '%', '^', '&', '*', '+'];
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-
+console.log("hi" + passwordText)
   passwordText.value = password;
 }
 
@@ -40,17 +40,55 @@ var hasSpecialCharacters = confirm(
   'Click OK to confirm that this password has special characters.'
 );
 
-var uppercase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+// Creates an empty array to consildate which characters the user chooses to put into that array
+var bag =[];
+
+console.log('before bag: ' + bag)
+if (hasNumbers) {
+  console.log('inside')
+  var array = bag.concat(numeric)
+  bag = array;
+  console.log("this other array: " + array)
+}
+console.log('after bag: ' + bag)
+
+if (hasUpperCasedCharacters) {
+  console.log('inside')
+  var array = bag.concat(uppercase)
+  bag = array;
+  console.log("this other array: " + array)
+}
+console.log('after bag: ' + bag)
+
+if (hasLowerCasedCharacrers) {
+  console.log('inside')
+  var array = bag.concat(lowercase)
+  bag = array;
+  console.log("this other array: " + array)
+}
+console.log('after bag: ' + bag)
+
+if (hasSpecialCharacters) {
+  console.log('inside')
+  var array = bag.concat(specialvalue)
+  bag = array;
+  console.log("this other array: " + array)
+}
+console.log('final bag: ' + bag)
+
 
 var actualPassword = ""
 
 for (var n = 0; n < userInput; n++) {
+  // randomIndex defines the position of the letter in the array
   var randomIndex = Math.floor(Math.random() * uppercase.length);
   console.log('random spot is ' + randomIndex)
+  // randomValue represents the letter of the position generated from the randomIndex
   let randomValue = uppercase[randomIndex]
-  console.log(randomValue)
+  console.log("hi " + randomValue)
+  // 
   actualPassword = actualPassword + randomValue
-  console.log(actualPassword)
+  console.log("bye " + actualPassword)
 }
 return actualPassword
 }

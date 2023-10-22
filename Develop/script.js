@@ -76,15 +76,15 @@ if (hasSpecialCharacters) {
 }
 console.log('final bag: ' + bag)
 
-
 var actualPassword = ""
 
+// This loop generates a new character userInput # of times. And combines the characters one step at a time.
 for (var n = 0; n < userInput; n++) {
   // randomIndex defines the position of the letter in the array
-  var randomIndex = Math.floor(Math.random() * uppercase.length);
+  var randomIndex = Math.floor(Math.random() * bag.length);
   console.log('random spot is ' + randomIndex)
   // randomValue represents the letter of the position generated from the randomIndex
-  let randomValue = uppercase[randomIndex]
+  let randomValue = bag[randomIndex]
   console.log("hi " + randomValue)
   // 
   actualPassword = actualPassword + randomValue
@@ -92,6 +92,23 @@ for (var n = 0; n < userInput; n++) {
 }
 return actualPassword
 }
+
+// var actualPassword = ""
+
+// // This loop generates a new character userInput # of times. And combines the characters one step at a time.
+// for (var n = 0; n < userInput; n++) {
+//   // randomIndex defines the position of the letter in the array
+//   var randomIndex = Math.floor(Math.random() * uppercase.length);
+//   console.log('random spot is ' + randomIndex)
+//   // randomValue represents the letter of the position generated from the randomIndex
+//   let randomValue = uppercase[randomIndex]
+//   console.log("hi " + randomValue)
+//   // 
+//   actualPassword = actualPassword + randomValue
+//   console.log("bye " + actualPassword)
+// }
+// return actualPassword
+// }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

@@ -79,7 +79,7 @@ function generatePassword() {
   var actualPassword = ""
 
   // This loop generates a new character userInput # of times. And combines the characters one step at a time.
-  for (var n = 0; n < userInput; n++) {
+  for (var i = 0; i < userInput; i++) {
     // randomIndex defines the position of the letter in the array
     var randomIndex = Math.floor(Math.random() * bag.length);
     console.log('random spot is ' + randomIndex)

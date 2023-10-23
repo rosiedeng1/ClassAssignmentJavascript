@@ -40,6 +40,11 @@ function generatePassword() {
     'Click OK to confirm that this password has special characters.'
   );
 
+  if ( hasUpperCasedCharacters === false && hasLowerCasedCharacrers === false && hasSpecialCharacters === false && hasNumbers === false) {
+    // you can add an alert if you want
+    alert('test')
+    return null
+  }
   // Creates an empty array to consildate which characters the user chooses to put into that array
   var bag = [];
 
@@ -60,7 +65,7 @@ function generatePassword() {
   }
   console.log('after bag: ' + bag)
 
-  if (hasLowerCasedCharacrers) {
+  if (hasLowerCasedCharacters) {
     console.log('inside')
     var array = bag.concat(lowercase)
     bag = array;

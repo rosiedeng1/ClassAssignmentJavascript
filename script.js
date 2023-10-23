@@ -30,7 +30,7 @@ function generatePassword() {
   var hasUpperCasedCharacters = confirm(
     'Click OK to confirm that this password contains uppercase characters.'
   );
-  var hasLowerCasedCharacrers = confirm(
+  var hasLowerCasedCharacters = confirm(
     'Click OK to confirm that this password contains lowercase characters.'
   )
   var hasNumbers = confirm(
@@ -41,7 +41,7 @@ function generatePassword() {
   );
 
   // In the case that user chooses not to select (presses cancel) any of the characters to include in password
-  if ( hasUpperCasedCharacters === false && hasLowerCasedCharacrers === false && hasSpecialCharacters === false && hasNumbers === false) {
+  if ( hasUpperCasedCharacters === false && hasLowerCasedCharacters === false && hasSpecialCharacters === false && hasNumbers === false) {
     alert('Choose at least one character type')
     return null;
   }
@@ -96,5 +96,3 @@ function generatePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-

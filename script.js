@@ -13,10 +13,9 @@ function writePassword() {
   console.log("hi" + passwordText)
   passwordText.value = password;
 }
-
+// Prompts the user for the length of password they would like
 function generatePassword() {
   const userInput = window.prompt("What would you like the length of the password to be?");
-  // do something with the input
   if (userInput < 8) {
     alert('Password length must be at least 8 characters');
     return null;
@@ -26,7 +25,8 @@ function generatePassword() {
     return null;
   }
 
-  //  now start applying password options
+
+  // Applies password options to confirm whether to include certain characters in the password
   var hasUpperCasedCharacters = confirm(
     'Click OK to confirm that this password contains uppercase characters.'
   );
@@ -40,14 +40,16 @@ function generatePassword() {
     'Click OK to confirm that this password has special characters.'
   );
 
+  // In the case that user chooses not to select (presses cancel) any of the characters to include in password
   if ( hasUpperCasedCharacters === false && hasLowerCasedCharacrers === false && hasSpecialCharacters === false && hasNumbers === false) {
-    // you can add an alert if you want
-    alert('test')
-    return null
+    alert('Choose at least one character type')
+    return null;
   }
+  
   // Creates an empty array to consildate which characters the user chooses to put into that array
   var bag = [];
 
+  // If these conditions are true, then the contents in the array variable go into the empty array (bag)
   console.log('before bag: ' + bag)
   if (hasNumbers) {
     console.log('inside')
@@ -63,27 +65,21 @@ function generatePassword() {
     bag = array;
     console.log("this other array: " + array)
   }
-  console.log('after bag: ' + bag)
 
   if (hasLowerCasedCharacters) {
-    console.log('inside')
     var array = bag.concat(lowercase)
     bag = array;
-    console.log("this other array: " + array)
   }
-  console.log('after bag: ' + bag)
 
   if (hasSpecialCharacters) {
-    console.log('inside')
     var array = bag.concat(specialvalue)
     bag = array;
-    console.log("this other array: " + array)
   }
   console.log('final bag: ' + bag)
 
   var actualPassword = ""
 
-  // This loop generates a new character userInput # of times. And combines the characters one step at a time.
+  // This loop generates a new character "userInput #"" of times. And combines the characters one step at a time.
   for (var i = 0; i < userInput; i++) {
     // randomIndex defines the position of the letter in the array
     var randomIndex = Math.floor(Math.random() * bag.length);
@@ -97,23 +93,6 @@ function generatePassword() {
   }
   return actualPassword
 }
-
-// var actualPassword = ""
-
-// // This loop generates a new character userInput # of times. And combines the characters one step at a time.
-// for (var n = 0; n < userInput; n++) {
-//   // randomIndex defines the position of the letter in the array
-//   var randomIndex = Math.floor(Math.random() * uppercase.length);
-//   console.log('random spot is ' + randomIndex)
-//   // randomValue represents the letter of the position generated from the randomIndex
-//   let randomValue = uppercase[randomIndex]
-//   console.log("hi " + randomValue)
-//   // 
-//   actualPassword = actualPassword + randomValue
-//   console.log("bye " + actualPassword)
-// }
-// return actualPassword
-// }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
